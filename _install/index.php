@@ -1,0 +1,6 @@
+<?php
+
+/*
+ * simple install program.
+ */
+?>
