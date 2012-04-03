@@ -47,11 +47,11 @@ if ($row) {
         exit;
     } else {
         // 表示モードの場合
-        $name = $row['name'];
-        $version = $row['version'];
-        $identifier = $row['identifier'];
+        $name = str_replace("'","",$row['name']);
+        $version = str_replace("'","",$row['version']);
+        $identifier = str_replace("'","",$row['identifier']);
         $size = $row['size'];
-        $minos = $row['minimumOS'];
+        $minos = str_replace("'","",$row['minimumOS']);
         // Useragentをチェック
         if (preg_match("/iPhone OS ([0-9_]+)/", $_SERVER['HTTP_USER_AGENT'], $matches)) {
             $device = $matches[0];
@@ -68,6 +68,7 @@ if ($row) {
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>iOS App Install</title>
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
